@@ -11,9 +11,9 @@ bounty, $2 in USDC.
 
 ## The entry
 
-> Congress just passed a 400-page bill to regulate artificial intelligence, written by people who tried to convert it to PDF by renaming the file .pdf, then called IT to ask why it still opens in Word.
+> Congress just passed a 400-page bill to regulate artificial intelligence, written by the same people who tried to convert it to PDF by renaming the file .pdf, then called IT to ask why it still opens in Word.
 
-199 characters — a single sentence.
+208 characters — a single sentence.
 
 Why it wins under the judge's brief, in its order:
 
@@ -31,7 +31,7 @@ Why it wins under the judge's brief, in its order:
 
 ## How it works
 
-`main.py` writes the roast to `/output/entry.txt` (UTF-8, 199
+`main.py` writes the roast to `/output/entry.txt` (UTF-8, 208
 characters, no trailing newline). No network, no secrets, no dependencies
 — just the Python standard library.
 

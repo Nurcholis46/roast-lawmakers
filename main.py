@@ -10,9 +10,9 @@ import os
 
 ROAST = (
     "Congress just passed a 400-page bill to regulate artificial "
-    "intelligence, written by people who tried to convert it to PDF "
-    "by renaming the file .pdf, then called IT to ask why it still "
-    "opens in Word."
+    "intelligence, written by the same people who tried to convert "
+    "it to PDF by renaming the file .pdf, then called IT to ask why "
+    "it still opens in Word."
 )
 
 
@@ -29,7 +29,12 @@ def main() -> None:
     assert 1 <= len(ROAST) <= 320, f"roast is {len(ROAST)} chars"
     assert ROAST.strip() == ROAST and "\n" not in ROAST and "\r" not in ROAST
     assert all(ord(c) >= 32 for c in ROAST), "no control characters"
-    assert ROAST.endswith(".") and ROAST.count(".") >= 1
+    assert ROAST.endswith(".") and not ROAST.endswith("..")
+    # Single sentence: ".pdf" is a file extension, not a sentence break,
+    # so strip it before counting sentence-ending punctuation.
+    body = ROAST.replace(".pdf", "")
+    assert sum(body.count(c) for c in ".?!") == 1, "must be exactly one sentence"
+    assert "  " not in ROAST, "no double spaces"
     out_dir = os.environ.get("OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
